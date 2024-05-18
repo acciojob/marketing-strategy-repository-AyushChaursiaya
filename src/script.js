@@ -1,4 +1,3 @@
-
 const markingStrategies = [];
 
 function addStrategy(name, description, target_Audience, budget, potential_ROI) {
@@ -13,7 +12,7 @@ function addStrategy(name, description, target_Audience, budget, potential_ROI) 
 function fetchStrategyByName(name) {
   const strategy = markingStrategies.find(strategy => strategy.name === name);
   if(strategy) {
-    `${strategy.name}: ${strategy.description} for target audience ${strategy.target_Audience}. ${strategy.budget}, ${strategy.potential_ROI}`
+    return `${strategy.name}: ${strategy.description} for target audience ${strategy.target_Audience}. $${strategy.budget}, $${strategy.potential_ROI}`
   }else{
     return `Strategy with name ${name} not found.`;
   }
@@ -34,7 +33,7 @@ function updateStrategy(name, newDetails) {
 
 
 function deleteStrategy(name) {
-  const index = markingStrategies.find(strategy => strategy.name === name);
+  const index = markingStrategies.findIndex(strategy => strategy.name === name);
   if(index !== -1) {
     markingStrategies.splice(index, 1);
     return `Strategy ${name} deleted successfully.`;
